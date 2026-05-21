@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Hospital Bill Negotiation Calculator | hospitalbillnegotiationcalc.com';
+const description = 'Estimate how much you can reduce your hospital bill through negotiation, financial assistance programs, and billing error corrections. Free, informational.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Hospital Bill Negotiation Calculator</h1>
+  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
+  <p>Hospital bills are among the most negotiable debts in the United States. Chargemaster rates (the sticker prices hospitals bill) are typically 2–5&times; what insurance companies actually pay. Uninsured and underinsured patients who know their rights can often reduce bills by 30–80% through financial assistance programs, prompt-pay discounts, billing error corrections, and direct negotiation. This calculator estimates your potential savings.</p>
+  <h2>Run the estimate</h2>
+  <form id="calc" novalidate>
+    <label for="bill">Original hospital bill amount (USD)</label>
+    <input id="bill" type="number" value="15000" min="0" />
+    <label for="insurance">Insurance status</label>
+    <select id="insurance">
+      <option value="uninsured">Uninsured / self-pay</option>
+      <option value="underinsured">Underinsured — high-deductible plan, bill exceeds coverage</option>
+      <option value="insured">Insured — disputing balance billing or billing errors</option>
+    </select>
+    <label for="income-bracket">Annual household income</label>
+    <select id="income-bracket">
+      <option value="low">Under $30,000 (may qualify for full charity care)</option>
+      <option value="moderate">$30,000 – $60,000 (partial financial assistance likely)</option>
+      <option value="mid">$60,000 – $100,000 (prompt-pay discounts, payment plans)</option>
+      <option value="high">Over $100,000 (negotiation and billing error focus)</option>
+    </select>
+    <label for="bill-type">Service type</label>
+    <select id="bill-type">
+      <option value="inpatient">Inpatient hospitalization</option>
+      <option value="emergency">Emergency department visit</option>
+      <option value="surgery">Outpatient surgery</option>
+      <option value="imaging">Imaging / lab / other outpatient</option>
+    </select>
+    <button type="submit">Estimate savings</button>
+  </form>
+  <p id="result" aria-live="polite"></p>
+  <h2>Why hospital bills are negotiable</h2>
+  <p>Hospitals set chargemaster rates far above what they actually collect. Medicare pays roughly 40 cents on the dollar; private insurers pay 60–80 cents. Uninsured patients who pay the chargemaster rate are paying a price no one else pays. The Affordable Care Act requires nonprofit hospitals (which receive tax-exempt status) to have written financial assistance policies and limit charges to uninsured patients to the amounts generally billed to insurers.</p>
+  <h2>Where to learn more</h2>
+  <p>See <a href="/guides/how-to-negotiate-hospital-bills">how to negotiate hospital bills</a>, <a href="/guides/hospital-financial-assistance">hospital financial assistance programs</a>, <a href="/guides/medical-billing-errors">finding and fixing medical billing errors</a>, and <a href="/guides/hospital-bill-misconceptions">common hospital bill misconceptions</a>.</p>
+  <script>
+    document.getElementById('calc').addEventListener('submit', e => {
+      e.preventDefault();
+      const bill = parseFloat(document.getElementById('bill').value)||15000;
+      const ins = document.getElementById('insurance').value;
+      const income = document.getElementById('income-bracket').value;
+      const btype = document.getElementById('bill-type').value;
+      let reductionLow, reductionHigh;
+      if (ins==='uninsured') {
+        if (income==='low') { reductionLow=0.60; reductionHigh=0.90; }
+        else if (income==='moderate') { reductionLow=0.40; reductionHigh=0.70; }
+        else if (income==='mid') { reductionLow=0.25; reductionHigh=0.50; }
+        else { reductionLow=0.10; reductionHigh=0.35; }
+      } else if (ins==='underinsured') {
+        reductionLow=0.20; reductionHigh=0.50;
+      } else {
+        reductionLow=0.10; reductionHigh=0.30; // billing errors + balance billing disputes
+      }
+      // Inpatient has more room; imaging less
+      if (btype==='imaging') { reductionLow*=0.7; reductionHigh*=0.8; }
+      if (btype==='inpatient') { reductionLow*=1.1; reductionHigh*=1.05; }
+      const savingsLow = bill * reductionLow;
+      const savingsHigh = bill * reductionHigh;
+      const fmt = n=>'$'+Math.round(n).toLocaleString();
+      document.getElementById('result').innerHTML =
+        `<strong>Estimated savings: ${fmt(savingsLow)} &ndash; ${fmt(savingsHigh)}</strong><br>You may reduce your ${fmt(bill)} bill to ${fmt(bill-savingsHigh)} &ndash; ${fmt(bill-savingsLow)}<br><em>Request an itemized bill, check for errors, ask about financial assistance, and negotiate a prompt-pay discount. Many hospitals settle for 40–60 cents on the dollar for uninsured patients.</em>`;
+    });
+  </script>
+</BaseLayout>
