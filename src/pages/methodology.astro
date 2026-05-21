@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Methodology | hospitalbillnegotiationcalc.com';
+const description = 'How the hospital bill negotiation calculator estimates savings based on insurance status, income, and service type.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Methodology</h1>
+  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
+  <h2>Reduction ranges by insurance status and income</h2>
+  <p>Uninsured / low income (&lt;$30K): 60–90% reduction (charity care + negotiation). Uninsured / moderate ($30–60K): 40–70%. Uninsured / mid ($60–100K): 25–50%. Uninsured / high (&gt;$100K): 10–35%. Underinsured: 20–50% (financial assistance + out-of-pocket limit disputes). Insured (billing error focus): 10–30%.</p>
+  <h2>Service type adjustment</h2>
+  <p>Inpatient: slight upward adjustment (larger bills with more line items = more negotiating room). Imaging/lab: slight downward adjustment (often already priced closer to Medicare rates and less subject to charity care).</p>
+  <h2>Data sources</h2>
+  <p>Ranges derived from published research on hospital charity care outcomes, insurer-to-chargemaster payment ratios (CMS hospital cost reports), and patient advocate case studies. Individual outcomes vary significantly by hospital, state, and negotiation effort.</p>
+</BaseLayout>
