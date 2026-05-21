@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hospitalbillnegotiationcalc.com/sitemap-index.xml
