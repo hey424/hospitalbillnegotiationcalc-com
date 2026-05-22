@@ -1,15 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Methodology | hospitalbillnegotiationcalc.com';
-const description = 'How the hospital bill negotiation calculator estimates savings based on insurance status, income, and service type.';
+const description = 'How the hospital bill negotiation calculator estimates potential savings — reduction ranges by insurance status and income, service type adjustments, and data sources.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology</h1>
-  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
-  <h2>Reduction ranges by insurance status and income</h2>
-  <p>Uninsured / low income (&lt;$30K): 60–90% reduction (charity care + negotiation). Uninsured / moderate ($30–60K): 40–70%. Uninsured / mid ($60–100K): 25–50%. Uninsured / high (&gt;$100K): 10–35%. Underinsured: 20–50% (financial assistance + out-of-pocket limit disputes). Insured (billing error focus): 10–30%.</p>
-  <h2>Service type adjustment</h2>
-  <p>Inpatient: slight upward adjustment (larger bills with more line items = more negotiating room). Imaging/lab: slight downward adjustment (often already priced closer to Medicare rates and less subject to charity care).</p>
-  <h2>Data sources</h2>
-  <p>Ranges derived from published research on hospital charity care outcomes, insurer-to-chargemaster payment ratios (CMS hospital cost reports), and patient advocate case studies. Individual outcomes vary significantly by hospital, state, and negotiation effort.</p>
+  <p><em>Reviewed by Gael Norwood (GN), Editor-in-Chief &mdash; Medical Billing & Hospital Negotiation Practice. Updated May 2026.</em></p>
+
+  <p>This page explains how the hospital bill negotiation calculator produces its savings estimates. Every input variable, every reduction range, and every assumption is disclosed here. Hospital bill negotiation outcomes vary widely depending on individual hospital policies, state law, the specific services involved, and the skill and persistence of the negotiation itself — but the ranges below reflect documented patterns in published research on charity care, insurer-to-hospital payment ratios, and patient advocacy outcomes.</p>
+
+  <h2>Step 1: The Chargemaster Rate Problem</h2>
+  <p>Hospital bills are generated from the chargemaster — a master list of every billable service that hospitals maintain, with prices set far above what they actually collect. The chargemaster rate is effectively a starting price for negotiation, not a final price. Consider how different payors actually pay:</p>
+  <ul>
+    <li><strong>Medicare:</strong> Pays hospitals approximately 86 cents for every dollar of Medicare-allowable costs, using a fixed fee schedule unrelated to the chargemaster.</li>
+    <li><strong>Private insurers:</strong> Negotiate contracts with hospitals for rates typically 150–300% of Medicare rates — far below the chargemaster. Large commercial insurers pay roughly 60–80 cents on the chargemaster dollar.</li>
+    <li><strong>Medicaid:</strong> Pays rates set by state agencies, typically the lowest of all payors — often 40–70% of Medicare rates.</li>
+    <li><strong>Uninsured patients:</strong> Historically billed at the full chargemaster rate — a price that is 3–5&times; what insurers pay, and that no insurer would actually accept.</li>
+  </ul>
+  <p>The Affordable Care Act partially addressed this disparity by requiring nonprofit hospitals (those with 501(c)(3) tax-exempt status) to: maintain written financial assistance policies; limit charges to uninsured patients to no more than the amounts generally billed to insurers (the "amounts generally billed" standard); and widely publicize their financial assistance policies. This means uninsured patients who know to ask have a legal right to insurer-equivalent rates at most hospitals — not as charity, but as a baseline billing requirement.</p>
+
+  <h2>Step 2: Reduction Ranges by Insurance Status and Income</h2>
+  <p>The calculator applies reduction ranges based on two variables: insurance status and household income. These ranges are derived from published CMS hospital cost reports, independent research on financial assistance program outcomes, and patient advocacy data:</p>
+  <ul>
+    <li><strong>Uninsured / income under $30,000:</strong> 60–90% reduction. Patients at this income level typically qualify for full or near-full charity care at most nonprofit hospitals, which covers the full bill or reduces it to a nominal amount. The 60% floor reflects cases where partial charity care plus negotiation leaves a residual, and the 90% ceiling reflects full charity care eliminations.</li>
+    <li><strong>Uninsured / income $30,000–$60,000:</strong> 40–70% reduction. This income band typically qualifies for partial financial assistance (sliding scale) at most hospitals, with the remainder available for negotiated settlement. The combination of partial FA plus prompt-pay discounts regularly achieves 40–70% total reduction at the institutional level.</li>
+    <li><strong>Uninsured / income $60,000–$100,000:</strong> 25–50% reduction. At this income level, formal financial assistance eligibility diminishes but does not disappear. Larger bills relative to income may still qualify under hospital policies extending to 300–400% of FPL. Direct negotiation, prompt-pay discounts, and hardship applications account for the 25–50% range.</li>
+    <li><strong>Uninsured / income over $100,000:</strong> 10–35% reduction. The primary strategies at this income level are billing error correction (which can be significant — studies estimate 40–80% of hospital bills contain errors), self-pay rate discounts (typically 20–30% off chargemaster when explicitly requested), and prompt-pay settlement discounts.</li>
+    <li><strong>Underinsured (high-deductible plan, bill exceeds coverage):</strong> 20–50% reduction. Underinsured patients may have partial financial assistance eligibility depending on income, and may also have rights under the No Surprises Act for surprise billing situations. The range reflects the combination of applicable strategies.</li>
+    <li><strong>Insured (billing errors / balance billing disputes):</strong> 10–30% reduction. The primary strategy for fully insured patients is identifying billing errors — charges not covered by insurance because of incorrect coding, service misattribution, or other errors — and balance billing disputes under the No Surprises Act.</li>
+  </ul>
+
+  <h2>Step 3: Service Type Adjustments</h2>
+  <p>The calculator applies modest adjustments based on the type of service:</p>
+  <ul>
+    <li><strong>Inpatient hospitalization:</strong> Slight upward adjustment (multiplier 1.1 on both ends of the range). Inpatient stays generate the largest bills, have the most line items to audit for errors, and typically give hospitals the most flexibility in settlement because the chargemaster rates for room-and-board and ancillary services carry the widest margins above actual cost.</li>
+    <li><strong>Emergency department visits:</strong> No adjustment. ED visits are among the most frequently disputed and frequently contain billing errors, but the base range already captures this variability.</li>
+    <li><strong>Outpatient surgery:</strong> No adjustment. Similar chargemaster dynamics to inpatient; the base range applies.</li>
+    <li><strong>Imaging / lab / other outpatient:</strong> Downward adjustment (multiplier 0.7–0.8 on both ends of the range). These services are often priced closer to Medicare rates than complex inpatient care and have less margin for reduction, though billing errors remain common.</li>
+  </ul>
+
+  <h2>What the Calculator Does Not Model</h2>
+  <p>The calculator does not estimate: the specific dollar value of billing errors (which requires reviewing the actual itemized bill and comparing to the medical record); Medicaid eligibility (which may fully eliminate the bill for qualifying patients); state-specific protections (California, Colorado, Maryland, and several other states have enacted additional hospital billing protections beyond the ACA baseline); the No Surprises Act cap on specific types of surprise bills (which require comparing the billed amount to the qualifying payment amount); collection agency settlement discounts (when the bill has already been sold to collections); or the compounding effect of multiple negotiation strategies applied sequentially. The stated ranges represent outcomes achievable through proactive engagement with the hospital billing department — they are not guaranteed and vary by hospital, by patient circumstances, and by negotiation skill.</p>
+
+  <p>Return to the <a href="/">calculator</a> or see the <a href="/guides/how-to-negotiate-hospital-bills">how to negotiate guide</a>.</p>
 </BaseLayout>

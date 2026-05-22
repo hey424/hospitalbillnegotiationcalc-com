@@ -5,7 +5,7 @@ const description = 'Estimate how much you can reduce your hospital bill through
 ---
 <BaseLayout title={title} description={description}>
   <h1>Hospital Bill Negotiation Calculator</h1>
-  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
+  <p><em>Reviewed by Gael Norwood (GN), Editor-in-Chief &mdash; Medical Billing &amp; Hospital Negotiation Practice. Updated May 2026.</em></p>
   <p>Hospital bills are among the most negotiable debts in the United States. Chargemaster rates (the sticker prices hospitals bill) are typically 2–5&times; what insurance companies actually pay. Uninsured and underinsured patients who know their rights can often reduce bills by 30–80% through financial assistance programs, prompt-pay discounts, billing error corrections, and direct negotiation. This calculator estimates your potential savings.</p>
   <h2>Run the estimate</h2>
   <form id="calc" novalidate>
@@ -35,9 +35,13 @@ const description = 'Estimate how much you can reduce your hospital bill through
   </form>
   <p id="result" aria-live="polite"></p>
   <h2>Why hospital bills are negotiable</h2>
-  <p>Hospitals set chargemaster rates far above what they actually collect. Medicare pays roughly 40 cents on the dollar; private insurers pay 60–80 cents. Uninsured patients who pay the chargemaster rate are paying a price no one else pays. The Affordable Care Act requires nonprofit hospitals (which receive tax-exempt status) to have written financial assistance policies and limit charges to uninsured patients to the amounts generally billed to insurers.</p>
+  <p>Hospitals set chargemaster rates far above what they actually collect. Medicare pays roughly 40 cents on the chargemaster dollar; private insurers pay 60–80 cents. Uninsured patients who pay the chargemaster rate are paying a price no one else pays — not because they are legally required to, but because most patients don't know they can ask for a different rate. The Affordable Care Act requires nonprofit hospitals (which receive federal tax-exempt status under Section 501(c)(3)) to have written financial assistance policies and limit charges to uninsured patients to the amounts generally billed to insurers.</p>
+  <p>Understanding this gap — between what the bill says and what the hospital actually collects — is the foundation of effective bill negotiation. A $40,000 chargemaster bill at a hospital where Medicare pays $12,000 and large insurers pay $18,000 is not a $40,000 obligation. It is a starting point for a conversation that, for qualifying patients with the right documentation and approach, can result in a bill closer to $8,000–$15,000.</p>
+  <h2>What the calculator estimates</h2>
+  <p>The calculator applies reduction ranges based on your insurance status and income, then adjusts for service type. The ranges are derived from published data on financial assistance program outcomes, self-pay discount rates, and documented negotiation results. The methodology page explains every range in detail.</p>
+  <p>The calculator produces a range — not a single number — because hospital bill negotiation outcomes vary significantly based on hospital policy, state law, the specific services involved, and negotiation skill and persistence. The low end of the range reflects conservative outcomes for patients who apply for assistance and negotiate but face obstacles. The high end reflects optimal outcomes for patients with strong documentation and full qualification for financial assistance. Most engaged patients who follow the process will fall somewhere in the middle.</p>
   <h2>Where to learn more</h2>
-  <p>See <a href="/guides/how-to-negotiate-hospital-bills">how to negotiate hospital bills</a>, <a href="/guides/hospital-financial-assistance">hospital financial assistance programs</a>, <a href="/guides/medical-billing-errors">finding and fixing medical billing errors</a>, and <a href="/guides/hospital-bill-misconceptions">common hospital bill misconceptions</a>.</p>
+  <p>See <a href="/guides/how-to-negotiate-hospital-bills">how to negotiate hospital bills</a>, <a href="/guides/hospital-financial-assistance">hospital financial assistance programs</a>, <a href="/guides/medical-billing-errors">finding and fixing medical billing errors</a>, and <a href="/guides/hospital-bill-misconceptions">common hospital bill misconceptions</a>. The <a href="/case-types">types of hospital bill negotiations</a> page explains each approach in detail, and the <a href="/methodology">methodology page</a> documents the calculator's reduction ranges and data sources.</p>
   <script>
     document.getElementById('calc').addEventListener('submit', e => {
       e.preventDefault();

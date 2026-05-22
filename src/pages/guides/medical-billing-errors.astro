@@ -1,15 +1,71 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const title = 'Finding and Fixing Medical Billing Errors | hospitalbillnegotiationcalc.com';
-const description = 'How to identify and correct medical billing errors: reading EOBs, disputing duplicate charges, and handling denied corrections.';
+const description = 'How to identify and correct medical billing errors: reading your EOB, understanding CPT codes, disputing duplicates and upcoding, and escalating denied corrections.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Finding and Fixing Medical Billing Errors</h1>
-  <p><em>Reviewed by Aspen Lockwood (AL), Editor-in-Chief. Updated May 2026.</em></p>
-  <h2>Request the itemized bill and EOB</h2><p>Get a line-item bill from the hospital and your Explanation of Benefits (EOB) from your insurer. They should tell the same story. Discrepancies are the starting point for disputes.</p>
-  <h2>Common errors to look for</h2><p>Duplicate charges (same service billed twice); upcoding (CPT code billed doesn&rsquo;t match service received); unbundling (procedures that should be billed as a group billed separately at higher individual rates); wrong date of service; charges for services not received; incorrect room type; medications listed that weren&rsquo;t administered.</p>
-  <h2>How to dispute</h2><p>Write a dispute letter to the billing department identifying each error by line item and procedure code. Request written confirmation of the correction within 30 days. Keep copies of everything. If the hospital refuses, escalate to the hospital&rsquo;s patient advocate or compliance office.</p>
-  <h2>Involve your insurer</h2><p>If the error affected your insurer&rsquo;s payment, notify your insurer as well. Insurers have audit rights and financial incentives to correct overbilling. Your insurer&rsquo;s assistance can be a powerful lever against stubborn billing departments.</p>
-  <h2>Where to go from here</h2>
-  <p>See <a href="/guides/how-to-negotiate-hospital-bills">how to negotiate bills</a> and <a href="/guides/hospital-bill-misconceptions">common misconceptions</a>.</p>
+  <p><em>Reviewed by Gael Norwood (GN), Editor-in-Chief &mdash; Medical Billing &amp; Hospital Negotiation Practice. Updated May 2026.</em></p>
+
+  <p>Medical billing errors are not rare edge cases — they are pervasive. Studies and patient advocacy organizations consistently estimate that 40–80% of hospital bills contain at least one error, with complex inpatient stays having the highest error rates. The financial stakes are significant: for a $40,000 inpatient bill, even a 10% error rate means $4,000 in incorrect charges. For patients who know how to find and dispute errors, billing error correction can be the single largest source of bill reduction — even before financial assistance or direct negotiation.</p>
+  <p>Billing error correction differs from negotiation in an important way: you are not asking the hospital to accept less than it is owed. You are asserting that a specific charge is factually incorrect and should not be on the bill at all. This framing matters. Billing errors are not a matter of discretion or goodwill — they are mistakes that should be corrected regardless of your financial situation or negotiating leverage.</p>
+
+  <h2>Step 1: Request the Itemized Bill with CPT Codes</h2>
+  <p>The foundation of any billing error audit is the itemized bill — a line-by-line listing of every charged service with CPT (Current Procedural Terminology) codes, dates of service, quantities, and unit prices. This is different from the summary statement that hospitals typically mail first, which shows only a total amount owed. You must specifically request the itemized bill.</p>
+  <p>Call the billing department and ask for the "complete itemized bill with procedure codes." Some hospitals require this request in writing; most will fulfill it over the phone within a few business days. If the billing department says it does not provide itemized bills, ask to speak with a supervisor — you have a right to review specific charges before making payment, and most states explicitly provide this right by statute.</p>
+  <p>When you receive the itemized bill, organize it by date of service. For inpatient stays, you will typically have charges for each day you were admitted, plus separate charges for procedures, medications, supplies, and ancillary services. The volume can be overwhelming — a five-day inpatient stay may have hundreds of line items. You do not need to verify every item; focus on the highest-dollar charges, any items that feel duplicated, and any items for services you specifically do not recall receiving.</p>
+
+  <h2>Step 2: Get Your Explanation of Benefits and Compare</h2>
+  <p>If you have health insurance, your insurer will issue an Explanation of Benefits (EOB) after the claim is processed. The EOB is a critical tool for billing error detection because it shows what the hospital billed the insurer — which should match what appears on your itemized bill. When they don't match, you have found something worth investigating.</p>
+  <p>On the EOB, look for: the procedure codes billed for each service (should match the CPT codes on your itemized bill); the date of service for each charge (should match your hospitalization dates); whether each charge was processed as in-network or out-of-network (out-of-network processing on care received at an in-network facility may indicate a billing routing error or a No Surprises Act situation); and whether the insurer denied any charges and why (denial codes on the EOB sometimes indicate billing errors that the insurer detected).</p>
+  <p>Compare each EOB line item to the corresponding itemized bill line item. Discrepancies to flag: a charge that appears on your itemized bill but not on the EOB (the hospital may not have submitted it to insurance — or may have already billed you for something your insurance would cover); a CPT code on the itemized bill that differs from the code on the EOB for the same service (potential upcoding or coding error); a charge billed on a date when you were not hospitalized according to your records.</p>
+
+  <h2>Common Billing Errors: What to Look For</h2>
+
+  <h3>Duplicate Charges</h3>
+  <p>The same service billed twice — often across adjacent dates, or when two staff members independently charted the same supply or procedure. Look for repeated line items with the same CPT code and same or similar description within a short time window. Medication duplicates are particularly common in multi-day inpatient stays where nursing documentation is entered by multiple staff on overlapping shifts.</p>
+
+  <h3>Upcoding</h3>
+  <p>Billing a CPT code for a more expensive service than was actually provided. Common examples: an evaluation and management (E/M) visit coded as a Level 5 (the highest and most expensive) when the clinical documentation supports a Level 3 or 4; a surgical procedure coded for a more complex variant than was performed; a diagnostic test coded as comprehensive when a limited version was ordered. Upcoding is both a billing error and, in egregious cases, a fraud — but for dispute purposes, the framing is an error regardless of intent.</p>
+  <p>To identify potential upcoding, you need a basic understanding of CPT codes. Look up the codes on your itemized bill using the AMA's CPT lookup or a plain-language resource. If the description of a code doesn't match what you received, note it as a potential error. Your medical records (which you can request separately from the medical records department) will show what was actually documented — and documented care is what should be billed.</p>
+
+  <h3>Unbundling</h3>
+  <p>Billing component procedures separately instead of as a bundled code, resulting in a higher total charge. Medicare and most insurers use "bundling edits" that automatically reject unbundled codes that should be grouped — but these edits may not catch all cases, and uninsured patients are billed the unbundled rate without the insurer's automated correction. If you see multiple line items for what seems like a single procedure, look up whether those codes should be billed as a package under the National Correct Coding Initiative (CCI) edits.</p>
+
+  <h3>Charges for Services Not Received</h3>
+  <p>Supplies, medications, or procedures listed on the bill that you did not actually receive. This is particularly common with medications — the pharmacy may have dispensed a medication that was ordered but never administered (because the order was cancelled or the patient's condition changed before administration). Operating room supply charges are another common source: standardized "kit" charges sometimes include items opened but not used, or items not opened at all.</p>
+  <p>Your primary defense here is your medical record. Request your medical record from the medical records department (separate from the billing department) and compare the actual medication administration records and procedure notes to the billing line items. Medications listed in the billing but absent from the administration record are candidates for dispute.</p>
+
+  <h3>Incorrect Room Type</h3>
+  <p>Billing for a private room when you occupied a semi-private room, or billing for an ICU or step-down unit day rate when you had been transferred to a general floor. Room and board charges for inpatient stays are among the highest per-day charges, and rate misclassification can be worth thousands of dollars for a multi-day stay. Your admission and transfer records document where you were on each day — compare to the room charge codes on the itemized bill.</p>
+
+  <h3>Wrong Date of Service</h3>
+  <p>Charges attributed to the wrong date — for example, a procedure performed on Tuesday billed as occurring on Wednesday when you had been discharged Tuesday evening and the billing system rolled the charge to Wednesday. Date errors can matter significantly when your insurance coverage has daily or date-based limits, when charges on different dates trigger different cost-sharing, or when a date error puts a charge outside your coverage period.</p>
+
+  <h3>Insurance Processing Errors</h3>
+  <p>Your insurer also makes errors. Check whether the EOB correctly applied your deductible (accumulated from prior claims in the calendar year), whether the correct plan year was used, whether the correct network status was applied, and whether your out-of-pocket maximum was correctly calculated. If the insurer appears to have processed a claim incorrectly, file an appeal with the insurer — not a dispute with the hospital. The insurer's error results in an incorrect patient responsibility calculation, not a hospital billing error per se, but the practical effect is an inflated patient bill.</p>
+
+  <h2>How to Write a Billing Dispute</h2>
+  <p>Billing disputes should be in writing, specific, and documentation-based. A strong dispute letter:</p>
+  <ul>
+    <li>Identifies the patient by name, date of birth, account number, and claim number.</li>
+    <li>Lists each disputed charge by date of service, description, CPT code, line item number, and amount charged.</li>
+    <li>States specifically what is wrong with each charge and why (e.g., "This CPT code 99215 was billed on [date], but my medical records from [date] document a Level 3 visit. The correct code should be 99213.").</li>
+    <li>Requests specific corrective action: removal of the charge, re-coding to the correct CPT code, or reprocessing through insurance.</li>
+    <li>Requests written acknowledgment of the dispute and resolution within 30 days.</li>
+    <li>States that payment will not be made on disputed charges pending resolution.</li>
+  </ul>
+  <p>Send the dispute by certified mail with return receipt, or by email to the billing department with a delivery receipt. Keep copies of everything — the letter, the enclosures, the send confirmation, and any responses.</p>
+
+  <h2>Escalating Unresolved Disputes</h2>
+  <p>If the billing department denies your dispute or fails to respond within 30 days, escalate. Ask to speak with the patient financial services director. Contact the hospital's patient advocate office if one exists. Involve your insurer if the error affected their payment. File a complaint with:</p>
+  <ul>
+    <li>Your state's hospital licensing authority or department of health.</li>
+    <li>The state attorney general's consumer protection division.</li>
+    <li>The Centers for Medicare &amp; Medicaid Services (CMS) if the hospital receives Medicare funding and you believe the billing violates Medicare's conditions of participation.</li>
+    <li>The IRS (Form 13909) if you believe the hospital is violating Section 501(r)'s requirement to limit charges to FAP-eligible patients to amounts generally billed.</li>
+  </ul>
+  <p>Most billing errors, when clearly documented, are resolved at the billing department level. Escalation is for cases where the documentation is clear and the hospital is being unresponsive or is refusing to correct an error it knows exists.</p>
+
+  <p>See also: <a href="/guides/how-to-negotiate-hospital-bills">the full negotiation guide</a>, <a href="/guides/hospital-financial-assistance">financial assistance programs</a>, and the <a href="/faq">FAQ</a>. Return to the <a href="/">calculator</a>.</p>
 </BaseLayout>
